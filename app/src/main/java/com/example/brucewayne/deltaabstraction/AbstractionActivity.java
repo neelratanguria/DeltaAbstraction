@@ -16,5 +16,12 @@ public class AbstractionActivity extends AppCompatActivity {
 
         myFan.breakDevice();
         myLight.breakDevice();
+
+        Switch mySwitch = new Switch();
+        mySwitch.turnOnSwitchable(myFan);
+        mySwitch.turnOffSwitchable(myFan);
+
+        mySwitch.turnOnSwitchable(myLight);
+        mySwitch.turnOffSwitchable(myLight);
     }
 }
