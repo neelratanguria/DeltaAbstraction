@@ -18,10 +18,21 @@ public class AbstractionActivity extends AppCompatActivity {
         myLight.breakDevice();
 
         Switch mySwitch = new Switch();
-        mySwitch.turnOnSwitchable(myFan);
-        mySwitch.turnOffSwitchable(myFan);
 
-        mySwitch.turnOnSwitchable(myLight);
-        mySwitch.turnOffSwitchable(myLight);
+        // Connecting device to turn on and off method
+        mySwitch.wireUp(myFan);         // Connecting fan
+        mySwitch.wireUp(myLight);       // Connecting light
+
+        // Turn On all the devices
+        mySwitch.flipSwitchUp();
+
+        // Turn Off all the devices
+        mySwitch.flipSwitchDown();
+
+        // Disconnect fan
+        mySwitch.unWire(myFan);
+
+        // Turn On all the devices
+        mySwitch.flipSwitchUp();
     }
 }

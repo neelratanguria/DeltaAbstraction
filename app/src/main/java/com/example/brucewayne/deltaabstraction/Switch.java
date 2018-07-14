@@ -1,14 +1,35 @@
 package com.example.brucewayne.deltaabstraction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Switch {
 
-    public void turnOnSwitchable (Switchable thing)
+    private List<Switchable> switchableItems = new ArrayList<Switchable>();
+
+    public void wireUp(Switchable thing)
     {
-        thing.turnOn();
+        switchableItems.add(thing);
     }
 
-    public void turnOffSwitchable (Switchable thing)
+    public void unWire (Switchable thing)
     {
-        thing.turnOff();
+        switchableItems.remove(thing);
+    }
+
+    public void flipSwitchUp()
+    {
+        for (Switchable things: switchableItems)
+        {
+            things.turnOn();
+        }
+    }
+
+    public void flipSwitchDown()
+    {
+        for (Switchable things: switchableItems)
+        {
+            things.turnOff();
+        }
     }
 }
